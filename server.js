@@ -22,6 +22,11 @@ io.on('connection', function (socket) {
       io.emit('nuevo', rpta)
     })
   })
+  socket.on('eliminar', function (data) {
+    user.delete(data, function (rpta) {
+      io.emit('borrado', rpta)
+    })
+  })
   socket.on('disconnect', function () {
     console.log('Usuario desconectado!')
   })
