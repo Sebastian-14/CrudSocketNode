@@ -8,11 +8,19 @@ const express = require('express'),
 
 io.on('connection', function (socket) {
   console.log('Usuario conectado!')
+  user.show(function (data) {
+    socket.emit('listar', data)
+  })
   socket.on('crear', function (data) {
     user.create(data, function (rpta) {
       io.emit('nuevo', rpta)
     })
     console.log(data)
+  })
+  socket.on('actualizar', function (data) {
+    user.update(data, function (rpta) {
+      io.emit('nuevo', rpta)
+    })
   })
   socket.on('disconnect', function () {
     console.log('Usuario desconectado!')

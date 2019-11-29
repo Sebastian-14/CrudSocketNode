@@ -1,6 +1,6 @@
 extends home
 block content
-  .col
+  .col-4
     form#formulario
       .form-group
         label(for="_id") ID
@@ -21,7 +21,7 @@ block content
         label(for="profile_pic") Foto
         input#profile_pic.form-control(type="text", placeholder="URL de foto")
       button.btn.btn-info(type="submit") Guardar
-  .col
+  .col-8
     table.table.table-striped.table-bordered.table-hover.mt-5
       thead
         tr
